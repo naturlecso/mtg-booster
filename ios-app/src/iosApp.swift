@@ -1,24 +1,23 @@
 import SwiftUI
 import KotlinModules
 
-struct ComposeView: UIViewControllerRepresentable {
+struct RootView: UIViewControllerRepresentable {
+    let root: RootPresenter
+
     func makeUIViewController(context: Context) -> some UIViewController {
-        ViewControllerKt.ViewController()
+        ViewControllerKt.rootViewController(root: root)
     }
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
 }
 
-struct ContentView: View {
-    var body: some View {
-        ComposeView().ignoresSafeArea(.all, edges: .bottom)
-    }
-}
-
 @main
 struct iosApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self)
+    var appDelegate: AppDelegate
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView(root: appDelegate.root).ignoresSafeArea(.all, edges: .bottom)
         }
     }
 }

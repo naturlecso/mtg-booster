@@ -1,21 +1,26 @@
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.text.BasicText
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
+import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import root.RootPresenter
+import root.RootScreen
 
 @Composable
-fun Screen() {
+fun Screen(
+    presenter: RootPresenter,
+    modifier: Modifier = Modifier
+) {
     MaterialTheme {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
+        Surface(
+            modifier = modifier
+                .fillMaxSize(),
         ) {
-            BasicText("Hello, ${getWorld()}!")
+            RootScreen(
+                presenter = presenter,
+                modifier = Modifier
+                    .fillMaxSize()
+            )
         }
     }
 }
