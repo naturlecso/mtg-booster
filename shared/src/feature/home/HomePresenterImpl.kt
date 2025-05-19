@@ -1,6 +1,7 @@
 package feature.home
 
 import com.arkivanov.decompose.ComponentContext
+import com.arkivanov.decompose.value.MutableValue
 import me.tatarka.inject.annotations.Assisted
 import me.tatarka.inject.annotations.Inject
 
@@ -14,4 +15,14 @@ class HomePresenterFactory(
 @Inject
 class HomePresenterImpl(
     @Assisted componentContext: ComponentContext
-): HomePresenter, ComponentContext by componentContext
+): HomePresenter, ComponentContext by componentContext {
+    override val viewState = MutableValue(HomeViewState())
+
+    override fun onSelectSet() {
+        // navigate to set selection screen
+    }
+
+    override fun onGenerateBooster() {
+        // navigate to booster generator
+    }
+}
