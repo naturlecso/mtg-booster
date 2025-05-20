@@ -1,3 +1,5 @@
 <resources>
     <string name="home_generate_button">Generate booster</string>
+    <string name="home_refresh_description">Change card set image</string>
+    <string name="home_edit_description">Choose card set</string>
 </resources>

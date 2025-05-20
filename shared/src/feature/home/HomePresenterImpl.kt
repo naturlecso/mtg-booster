@@ -18,8 +18,12 @@ class HomePresenterImpl(
 ): HomePresenter, ComponentContext by componentContext {
     override val viewState = MutableValue(HomeViewState())
 
-    override fun onSelectSet() {
+    override fun onChooseSet() {
         // navigate to set selection screen
+    }
+
+    override fun onChangeSetImage() {
+        // change set image
     }
 
     override fun onGenerateBooster() {

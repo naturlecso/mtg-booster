@@ -1,11 +1,17 @@
 package feature.home
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -27,9 +33,12 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
+import com.composables.core.Icon
 import com.composeunstyled.Text
 import com.naturlecso.mtgbooster.shared.Res
+import com.naturlecso.mtgbooster.shared.home_edit_description
 import com.naturlecso.mtgbooster.shared.home_generate_button
+import com.naturlecso.mtgbooster.shared.home_refresh_description
 import org.jetbrains.compose.resources.stringResource
 import ui.HomeTopShape
 import kotlin.math.PI
@@ -44,19 +53,32 @@ fun HomeScreen(
     with(viewState) {
         Scaffold { paddingValues ->
             Box(modifier = Modifier.fillMaxSize()) {
-                MtgSet(
-                    name = selectedMtgSet.name,
-                    imageUrl = selectedMtgSet.imageUrl
-                )
-
-                Text(
-                    text = stringResource(Res.string.home_generate_button),
-                    style = MaterialTheme.typography.displayLarge,
-                    textAlign = TextAlign.Center,
+                CardSetBanner(
+                    setName = selectedCardSet.name,
+                    imageUrl = selectedCardSet.imageUrl,
                     modifier = Modifier
                         .fillMaxWidth()
+                        .fillMaxHeight(0.6f)
+                )
+
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .fillMaxHeight(0.4f)
+                ) {
+                    CardSetActions(
+                        onChangeImage = presenter::onChangeSetImage,
+                        onChooseSet = presenter::onChooseSet,
+                        modifier = Modifier
+                            .align(Alignment.BottomEnd)
+                    )
+                }
+
+                GenerateBoosterButton(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .fillMaxHeight(0.3f)
                         .align(Alignment.BottomCenter)
-                        .padding(64.dp)
                 )
             }
         }
@@ -64,9 +86,10 @@ fun HomeScreen(
 }
 
 @Composable
-private fun MtgSet(
-    name: String,
-    imageUrl: String
+private fun CardSetBanner(
+    setName: String,
+    imageUrl: String,
+    modifier: Modifier = Modifier
 ) {
     var boxSize by remember { mutableStateOf(IntSize.Zero) }
 
@@ -77,9 +100,7 @@ private fun MtgSet(
     val angleDegrees = -(angleRadians * (180f / PI.toFloat()))
 
     Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight(0.6f)
+        modifier = modifier
             .onGloballyPositioned { coordinates ->
                 boxSize = coordinates.size
             }
@@ -100,11 +121,11 @@ private fun MtgSet(
         Box(
             modifier = Modifier
                 .matchParentSize()
-                .background(Color.Black.copy(alpha = 0.6f))
+                .background(Color.Black.copy(alpha = 0.5f))
         )
 
         Text(
-            text = name,
+            text = setName,
             color = MaterialTheme.colorScheme.inverseOnSurface,
             style = MaterialTheme.typography.headlineLarge,
             modifier = Modifier
@@ -117,3 +138,43 @@ private fun MtgSet(
         )
     }
 }
+
+@Composable
+private fun CardSetActions(
+    onChangeImage: () -> Unit,
+    onChooseSet: () -> Unit,
+    modifier: Modifier = Modifier
+) = Column(
+    modifier = modifier,
+    verticalArrangement = Arrangement.spacedBy(16.dp)
+) {
+    IconButton(
+        onClick = onChangeImage
+    ) {
+        Icon(
+            imageVector = Icons.Filled.Refresh,
+            contentDescription = stringResource(Res.string.home_refresh_description),
+            tint = MaterialTheme.colorScheme.inverseOnSurface
+        )
+    }
+
+    IconButton(
+        onClick = onChooseSet
+    ) {
+        Icon(
+            imageVector = Icons.Filled.Edit,
+            contentDescription = stringResource(Res.string.home_edit_description),
+            tint = MaterialTheme.colorScheme.inverseOnSurface
+        )
+    }
+}
+
+@Composable
+private fun GenerateBoosterButton(
+    modifier: Modifier = Modifier
+) = Text(
+    text = stringResource(Res.string.home_generate_button),
+    style = MaterialTheme.typography.displayLarge,
+    textAlign = TextAlign.Center,
+    modifier = modifier
+)

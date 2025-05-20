@@ -5,6 +5,7 @@ import com.arkivanov.decompose.value.Value
 interface HomePresenter {
     val viewState: Value<HomeViewState>
 
-    fun onSelectSet()
+    fun onChooseSet()
+    fun onChangeSetImage()
     fun onGenerateBooster()
 }
