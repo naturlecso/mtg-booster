@@ -5,6 +5,7 @@ product:
 dependencies:
   - $compose.foundation: exported
   - $compose.material3: exported
+  - $compose.components.resources: exported
   - me.tatarka.inject:kotlin-inject-runtime-kmp:0.7.2: exported
   - software.amazon.lastmile.kotlin.inject.anvil:runtime:0.1.3: exported
   - software.amazon.lastmile.kotlin.inject.anvil:runtime-optional:0.1.3: exported
@@ -27,6 +28,8 @@ dependencies@ios:
 settings:
   compose:
     enabled: true
+    resources:
+      packageName: com.naturlecso.mtgbooster.shared
   kotlin:
     serialization: json
     ksp:

@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -21,14 +22,15 @@ import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onGloballyPositioned
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
 import com.composeunstyled.Text
+import com.naturlecso.mtgbooster.shared.Res
+import com.naturlecso.mtgbooster.shared.home_generate_button
+import org.jetbrains.compose.resources.stringResource
 import ui.HomeTopShape
 import kotlin.math.PI
 import kotlin.math.atan2
@@ -48,10 +50,8 @@ fun HomeScreen(
                 )
 
                 Text(
-                    text = "Generate Booster",
-                    color = Color.Black,
-                    fontSize = 64.sp,
-                    fontWeight = FontWeight.Bold,
+                    text = stringResource(Res.string.home_generate_button),
+                    style = MaterialTheme.typography.displayLarge,
                     textAlign = TextAlign.Center,
                     modifier = Modifier
                         .fillMaxWidth()
@@ -105,9 +105,8 @@ private fun MtgSet(
 
         Text(
             text = name,
-            color = Color.White,
-            fontSize = 32.sp,
-            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.inverseOnSurface,
+            style = MaterialTheme.typography.headlineLarge,
             modifier = Modifier
                 .align(Alignment.BottomStart)
                 .padding(horizontal = 16.dp)

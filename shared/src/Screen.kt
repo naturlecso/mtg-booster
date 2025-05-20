@@ -5,13 +5,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import root.RootPresenter
 import root.RootScreen
+import ui.MtgTypography
 
 @Composable
 fun Screen(
     presenter: RootPresenter,
     modifier: Modifier = Modifier
 ) {
-    MaterialTheme {
+    MaterialTheme(
+        typography = MtgTypography()
+    ) {
         Surface(
             modifier = modifier
                 .fillMaxSize(),
