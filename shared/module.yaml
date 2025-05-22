@@ -6,26 +6,27 @@ dependencies:
   - $compose.foundation: exported
   - $compose.material3: exported
   - $compose.components.resources: exported
-  - me.tatarka.inject:kotlin-inject-runtime-kmp:0.7.2: exported
-  - software.amazon.lastmile.kotlin.inject.anvil:runtime:0.1.3: exported
-  - software.amazon.lastmile.kotlin.inject.anvil:runtime-optional:0.1.3: exported
-  - com.arkivanov.decompose:decompose:3.3.0: exported
-  - com.arkivanov.decompose:extensions-compose:3.3.0: exported
-  - com.arkivanov.essenty:lifecycle:2.5.0: exported
-  - com.composables:core:1.30.0: exported
-  - io.coil-kt.coil3:coil-compose:3.2.0: exported
-  - io.coil-kt.coil3:coil-network-ktor3:3.2.0: exported
+  - $libs.kotlinInject.runtime: exported
+  - $libs.kotlinInject.anvil.runtime: exported
+  - $libs.kotlinInject.anvil.runtime.optional: exported
+  - $libs.decompose.decompose: exported
+  - $libs.decompose.extensions.compose: exported
+  - $libs.essenty.lifecycle: exported
+  - $libs.ktor.core: exported
+  - $libs.compose.unstyled: exported
+  - $libs.coil.compose: exported
+  - $libs.coil.compose.ktor: exported
+  - $libs.room.runtime: exported
 
 dependencies@android:
-  # Compose integration with Android activities
-  - androidx.activity:activity-compose:1.10.1: exported
-  - androidx.appcompat:appcompat:1.6.1: exported
-  - io.ktor:ktor-client-android:3.1.3: exported
+  - $libs.androidx.compose.activity: exported
+  - $libs.ktor.android: exported
 
 dependencies@ios:
-  - io.ktor:ktor-client-darwin:3.1.3: exported
+  - $libs.ktor.darwin: exported
 
 settings:
+  ktor: enabled
   compose:
     enabled: true
     resources:
@@ -34,5 +35,6 @@ settings:
     serialization: json
     ksp:
       processors:
-        - me.tatarka.inject:kotlin-inject-compiler-ksp:0.7.2
-        - software.amazon.lastmile.kotlin.inject.anvil:compiler:0.1.3
+        - $libs.kotlinInject.compiler
+        - $libs.kotlinInject.anvil.compiler
+        - $libs.room.compiler

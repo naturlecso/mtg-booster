@@ -5,7 +5,7 @@
         android:name="com.naturlecso.mtgbooster.MtgBoosterApplication">
         <activity
             android:name="com.naturlecso.mtgbooster.MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:theme="@style/android:Theme.Material.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
