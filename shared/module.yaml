@@ -12,7 +12,9 @@ dependencies:
   - $libs.decompose.decompose: exported
   - $libs.decompose.extensions.compose: exported
   - $libs.essenty.lifecycle: exported
-  - $libs.ktor.core: exported
+  - $libs.ktor.core
+  - $libs.ktor.content.negotiation
+  - $libs.ktor.serialization.json
   - $libs.compose.unstyled: exported
   - $libs.coil.compose: exported
   - $libs.coil.compose.ktor: exported
@@ -20,10 +22,10 @@ dependencies:
 
 dependencies@android:
   - $libs.androidx.compose.activity: exported
-  - $libs.ktor.android: exported
+  - $libs.ktor.okhttp
 
 dependencies@ios:
-  - $libs.ktor.darwin: exported
+  - $libs.ktor.darwin
 
 settings:
   ktor: enabled

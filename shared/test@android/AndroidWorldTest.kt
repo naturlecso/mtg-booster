@@ -1,5 +1,5 @@
 
-import junit.framework.TestCase.assertTrue
+import org.junit.jupiter.api.Assertions.assertTrue
 import kotlin.test.Test
 
 class AndroidWorldTest {
