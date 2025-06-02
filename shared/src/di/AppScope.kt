@@ -1,3 +1,0 @@
-package di
-
-interface AppScope

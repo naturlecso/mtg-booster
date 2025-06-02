@@ -18,7 +18,8 @@ dependencies:
   - $libs.compose.unstyled: exported
   - $libs.coil.compose: exported
   - $libs.coil.compose.ktor: exported
-  - $libs.room.runtime: exported
+  - $libs.room.runtime
+  - $libs.sqlite.bundled
 
 dependencies@android:
   - $libs.androidx.compose.activity: exported

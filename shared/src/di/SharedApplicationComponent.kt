@@ -2,6 +2,7 @@ package di
 
 import data.network.CardService
 import root.RootPresenterFactory
+import software.amazon.lastmile.kotlin.inject.anvil.AppScope
 import software.amazon.lastmile.kotlin.inject.anvil.ContributesTo
 import software.amazon.lastmile.kotlin.inject.anvil.SingleIn
 
