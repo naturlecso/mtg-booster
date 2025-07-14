@@ -10,6 +10,7 @@ store5 = "5.1.0-alpha06"
 room = "2.7.1"
 sqlite = "2.5.1"
 androidx-activity = "1.10.1"
+kermit = "2.0.6"
 
 [libraries]
 kotlinInject-compiler = { module = "me.tatarka.inject:kotlin-inject-compiler-ksp", version.ref = "kotlin-inject" }
@@ -34,3 +35,4 @@ room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
 androidx-compose-activity = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
+kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }

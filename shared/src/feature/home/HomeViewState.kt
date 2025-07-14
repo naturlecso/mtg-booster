@@ -1,7 +1,7 @@
 package feature.home
 
-import domain.CardSet
+import domain.SelectedCardSet
 
 data class HomeViewState(
-    val selectedCardSet: CardSet = CardSet()
+    val selectedCardSet: SelectedCardSet = SelectedCardSet()
 )

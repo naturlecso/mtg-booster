@@ -15,11 +15,14 @@ dependencies:
   - $libs.ktor.core
   - $libs.ktor.content.negotiation
   - $libs.ktor.serialization.json
+  - $libs.ktor.logging
   - $libs.compose.unstyled: exported
   - $libs.coil.compose: exported
   - $libs.coil.compose.ktor: exported
   - $libs.room.runtime
   - $libs.sqlite.bundled
+  - $libs.store5
+  - $libs.kermit
 
 dependencies@android:
   - $libs.androidx.compose.activity: exported

@@ -1,7 +1,8 @@
 package domain
 
 data class CardSet(
-    val code: String = "ktk",
-    val name: String = "Khans of Tarkir",
-    val imageUrl: String = "https://www.mtgpics.com/pics/art/ktk/190.jpg"
+    val code: String,
+    val name: String,
+    val releasedAt: String, // YYYY-MM-DD
+    val iconUri: String
 )

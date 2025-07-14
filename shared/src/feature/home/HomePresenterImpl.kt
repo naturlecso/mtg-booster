@@ -4,6 +4,7 @@ import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.value.MutableValue
 import me.tatarka.inject.annotations.Assisted
 import me.tatarka.inject.annotations.Inject
+import utils.coroutineScope
 
 @Inject
 class HomePresenterFactory(
@@ -16,6 +17,7 @@ class HomePresenterFactory(
 class HomePresenterImpl(
     @Assisted componentContext: ComponentContext
 ): HomePresenter, ComponentContext by componentContext {
+    private val coroutineScope = coroutineScope()
     override val viewState = MutableValue(HomeViewState())
 
     override fun onChooseSet() {
