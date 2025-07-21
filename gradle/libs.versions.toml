@@ -10,6 +10,7 @@ store5 = "5.1.0-alpha06"
 room = "2.7.1"
 sqlite = "2.5.1"
 androidx-activity = "1.10.1"
+androidx-datastore = "1.1.7"
 kermit = "2.0.6"
 
 [libraries]
@@ -35,4 +36,6 @@ room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
 androidx-compose-activity = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
+androidx-datastore-core = { module = "androidx.datastore:datastore-core", version.ref = "androidx-datastore" }
+androidx-datastore-preference = { module = "androidx.datastore:datastore-preferences-core", version.ref = "androidx-datastore" }
 kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }

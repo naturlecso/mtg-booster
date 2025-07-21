@@ -23,6 +23,8 @@ dependencies:
   - $libs.sqlite.bundled
   - $libs.store5
   - $libs.kermit
+  - $libs.androidx.datastore.core
+  - $libs.androidx.datastore.preference
 
 dependencies@android:
   - $libs.androidx.compose.activity: exported

@@ -1,7 +1,9 @@
 package domain
 
 data class SelectedCardSet(
-    val code: String = "ktk",
+    val code: String = "krk",
     val name: String = "Khans of Tarkir",
-    val imageUrl: String = "https://www.mtgpics.com/pics/art/ktk/190.jpg"
-)
+    val cardNumber: Int = 190
+) {
+    val cardImageUrl by lazy { "https://www.mtgpics.com/pics/art/$code/$cardNumber.jpg" }
+}

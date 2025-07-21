@@ -55,7 +55,7 @@ fun HomeScreen(
             Box(modifier = Modifier.fillMaxSize()) {
                 CardSetBanner(
                     setName = selectedCardSet.name,
-                    imageUrl = selectedCardSet.imageUrl,
+                    imageUrl = selectedCardSet.cardImageUrl,
                     modifier = Modifier
                         .fillMaxWidth()
                         .fillMaxHeight(0.6f)

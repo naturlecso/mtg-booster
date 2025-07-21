@@ -5,17 +5,21 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.RoomDatabaseConstructor
 import data.cache.dao.CardSetDao
+import data.cache.dao.CardSetDisplayDao
+import data.cache.model.CardSetDisplayEntity
 import data.cache.model.CardSetEntity
 
 @Database(
     version = 1,
     entities = [
-        CardSetEntity::class
+        CardSetEntity::class,
+        CardSetDisplayEntity::class
     ]
 )
 @ConstructedBy(AppDatabaseConstructor::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun getCardSetDao(): CardSetDao
+    abstract fun getCardSetDisplayDao(): CardSetDisplayDao
 }
 
 expect object AppDatabaseConstructor : RoomDatabaseConstructor<AppDatabase> {
