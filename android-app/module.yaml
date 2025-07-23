@@ -1,6 +1,7 @@
 product: android/app
 
 dependencies:
+  - ../core/base
   - ../shared
 
 settings:

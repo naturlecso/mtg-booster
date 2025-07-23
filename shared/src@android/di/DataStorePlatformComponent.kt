@@ -2,10 +2,7 @@ package di
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.IO
-import kotlinx.coroutines.Job
+import base.model.AppCoroutineScope
 import me.tatarka.inject.annotations.Provides
 import software.amazon.lastmile.kotlin.inject.anvil.AppScope
 import software.amazon.lastmile.kotlin.inject.anvil.ContributesTo
@@ -19,10 +16,11 @@ interface DataStorePlatformComponent {
     @Provides
     @SingleIn(AppScope::class)
     fun provideDataStore(
-        applicationReference: ApplicationReference
+        applicationReference: ApplicationReference,
+        scope: AppCoroutineScope
     ): DataStore<Preferences> =
         createDataStore(
-            coroutineScope = CoroutineScope(Job() + Dispatchers.IO), // TODO own AppCoroutineScope
+            coroutineScope = scope.io,
             produceFile = {
                 requireNotNull(applicationReference.get())
                     .filesDir

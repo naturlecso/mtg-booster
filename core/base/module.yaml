@@ -1,0 +1,19 @@
+product:
+  type: lib
+  platforms: [android, iosArm64, iosSimulatorArm64, iosX64]
+
+dependencies:
+  - $compose.foundation
+  - $libs.kotlinInject.runtime
+  - $libs.kotlinInject.anvil.runtime
+  - $libs.kotlinInject.anvil.runtime.optional
+  - $libs.essenty.lifecycle
+
+settings:
+  compose: enabled
+  kotlin:
+    serialization: json
+    ksp:
+      processors:
+        - $libs.kotlinInject.compiler
+        - $libs.kotlinInject.anvil.compiler

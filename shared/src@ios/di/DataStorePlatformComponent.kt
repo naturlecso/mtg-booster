@@ -2,11 +2,8 @@ package di
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import base.model.AppCoroutineScope
 import kotlinx.cinterop.ExperimentalForeignApi
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.IO
-import kotlinx.coroutines.Job
 import me.tatarka.inject.annotations.Provides
 import platform.Foundation.NSDocumentDirectory
 import platform.Foundation.NSFileManager
@@ -24,9 +21,11 @@ interface DataStorePlatformComponent {
     @OptIn(ExperimentalForeignApi::class)
     @Provides
     @SingleIn(AppScope::class)
-    fun provideDataStore(): DataStore<Preferences> =
+    fun provideDataStore(
+        scope: AppCoroutineScope
+    ): DataStore<Preferences> =
         createDataStore(
-            coroutineScope = CoroutineScope(Job() + Dispatchers.IO), // TODO own AppCoroutineScope
+            coroutineScope = scope.io,
             produceFile = {
                 val documentDirectory: NSURL? = NSFileManager.defaultManager.URLForDirectory(
                     directory = NSDocumentDirectory,

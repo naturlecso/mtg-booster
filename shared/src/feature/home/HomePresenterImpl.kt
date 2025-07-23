@@ -1,12 +1,12 @@
 package feature.home
 
+import base.extensions.coroutineScope
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.value.MutableValue
 import data.repository.CardSetRepository
 import kotlinx.coroutines.launch
 import me.tatarka.inject.annotations.Assisted
 import me.tatarka.inject.annotations.Inject
-import utils.coroutineScope
 
 @Inject
 class HomePresenterFactory(

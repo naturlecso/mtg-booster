@@ -2,3 +2,4 @@ modules:
   - android-app
   - ios-app
   - shared
+  - core/base

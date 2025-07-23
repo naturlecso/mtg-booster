@@ -1,4 +1,4 @@
-package utils
+package base.extensions
 
 import com.arkivanov.essenty.lifecycle.LifecycleOwner
 import com.arkivanov.essenty.lifecycle.doOnDestroy
