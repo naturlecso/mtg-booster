@@ -1,13 +1,13 @@
-package data.cache
+package database
 
 import androidx.room.ConstructedBy
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.RoomDatabaseConstructor
-import data.cache.dao.CardSetDao
-import data.cache.dao.CardSetDisplayDao
-import data.cache.model.CardSetDisplayEntity
-import data.cache.model.CardSetEntity
+import database.dao.CardSetDao
+import database.dao.CardSetDisplayDao
+import database.model.CardSetDisplayEntity
+import database.model.CardSetEntity
 
 @Database(
     version = 1,

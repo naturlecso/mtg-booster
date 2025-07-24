@@ -3,11 +3,11 @@ package di
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import base.model.AppCoroutineScope
+import base.utils.ApplicationReference
 import me.tatarka.inject.annotations.Provides
 import software.amazon.lastmile.kotlin.inject.anvil.AppScope
 import software.amazon.lastmile.kotlin.inject.anvil.ContributesTo
 import software.amazon.lastmile.kotlin.inject.anvil.SingleIn
-import utils.ApplicationReference
 import utils.DATA_STORE_FILE_NAME
 import utils.createDataStore
 

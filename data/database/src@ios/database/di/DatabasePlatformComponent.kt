@@ -1,8 +1,8 @@
-package di
+package database.di
 
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import data.cache.AppDatabase
+import database.AppDatabase
 import kotlinx.cinterop.ExperimentalForeignApi
 import me.tatarka.inject.annotations.Provides
 import platform.Foundation.NSDocumentDirectory

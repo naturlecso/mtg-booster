@@ -3,3 +3,4 @@ modules:
   - ios-app
   - shared
   - core/base
+  - data/database

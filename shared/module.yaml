@@ -4,6 +4,7 @@ product:
 
 dependencies:
   - ../core/base
+  - ../data/database
   - $compose.foundation: exported
   - $compose.material3: exported
   - $compose.components.resources: exported
@@ -20,8 +21,6 @@ dependencies:
   - $libs.compose.unstyled: exported
   - $libs.coil.compose: exported
   - $libs.coil.compose.ktor: exported
-  - $libs.room.runtime
-  - $libs.sqlite.bundled
   - $libs.store5
   - $libs.kermit
   - $libs.androidx.datastore.core
@@ -46,4 +45,3 @@ settings:
       processors:
         - $libs.kotlinInject.compiler
         - $libs.kotlinInject.anvil.compiler
-        - $libs.room.compiler

@@ -1,0 +1,19 @@
+product:
+  type: lib
+  platforms: [android, iosArm64, iosSimulatorArm64, iosX64]
+
+dependencies:
+  - ../../core/base
+  - $libs.kotlinInject.runtime
+  - $libs.kotlinInject.anvil.runtime
+  - $libs.kotlinInject.anvil.runtime.optional
+  - $libs.room.runtime: exported
+  - $libs.sqlite.bundled
+
+settings:
+  kotlin:
+    ksp:
+      processors:
+        - $libs.kotlinInject.compiler
+        - $libs.kotlinInject.anvil.compiler
+        - $libs.room.compiler

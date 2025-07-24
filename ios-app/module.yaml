@@ -2,6 +2,8 @@ product:
   type: ios/app
 
 dependencies:
+  - ../core/base
+  - ../data/database
   - ../shared
 
 settings:

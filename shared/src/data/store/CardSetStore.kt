@@ -1,10 +1,10 @@
 package data.store
 
-import data.cache.dao.CardSetDao
-import data.cache.model.CardSetEntity
 import data.network.cardset.CardSetApi
 import data.network.model.CardSetNetworkModel
 import data.util.storeBuilder
+import database.dao.CardSetDao
+import database.model.CardSetEntity
 import me.tatarka.inject.annotations.Inject
 import org.mobilenativefoundation.store.store5.Fetcher
 import org.mobilenativefoundation.store.store5.SourceOfTruth

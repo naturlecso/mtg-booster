@@ -1,3 +1,3 @@
-package utils
+package base.utils
 
 actual object ApplicationReference

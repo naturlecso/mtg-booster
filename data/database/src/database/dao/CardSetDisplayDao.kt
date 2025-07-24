@@ -1,11 +1,11 @@
-package data.cache.dao
+package database.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import data.cache.model.CardSetDisplayEntity
+import database.model.CardSetDisplayEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao

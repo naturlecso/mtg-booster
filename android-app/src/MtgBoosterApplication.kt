@@ -1,9 +1,9 @@
 package com.naturlecso.mtgbooster
 
 import android.app.Application
+import base.utils.ApplicationReference
 import di.AndroidApplicationComponent
 import di.create
-import utils.ApplicationReference
 
 class MtgBoosterApplication : Application() {
     private val applicationReference = ApplicationReference.apply {

@@ -1,10 +1,10 @@
 package data.repository
 
-import data.cache.dao.CardSetDao
-import data.cache.dao.CardSetDisplayDao
-import data.cache.model.CardSetDisplayEntity
-import data.cache.model.CardSetEntity
 import data.store.CardSetStore
+import database.dao.CardSetDao
+import database.dao.CardSetDisplayDao
+import database.model.CardSetDisplayEntity
+import database.model.CardSetEntity
 import domain.CardSet
 import domain.SelectedCardSet
 import kotlinx.coroutines.ExperimentalCoroutinesApi

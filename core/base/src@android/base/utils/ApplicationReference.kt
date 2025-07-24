@@ -1,4 +1,4 @@
-package utils
+package base.utils
 
 import android.app.Application
 import java.lang.ref.WeakReference
@@ -10,7 +10,7 @@ actual object ApplicationReference {
         value = WeakReference(application)
     }
 
-    internal fun get(): Application? {
+    fun get(): Application? {
         return value?.get()
     }
 }
