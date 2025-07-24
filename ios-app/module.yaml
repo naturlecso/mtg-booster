@@ -4,6 +4,7 @@ product:
 dependencies:
   - ../core/base
   - ../data/database
+  - ../data/datastore
   - ../shared
 
 settings:

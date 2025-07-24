@@ -1,6 +1,6 @@
 @file:OptIn(InternalCoroutinesApi::class)
 
-package utils
+package datastore.utils
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory

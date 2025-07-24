@@ -4,3 +4,4 @@ modules:
   - shared
   - core/base
   - data/database
+  - data/datastore

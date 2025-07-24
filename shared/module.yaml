@@ -5,6 +5,7 @@ product:
 dependencies:
   - ../core/base
   - ../data/database
+  - ../data/datastore
   - $compose.foundation: exported
   - $compose.material3: exported
   - $compose.components.resources: exported
@@ -23,8 +24,6 @@ dependencies:
   - $libs.coil.compose.ktor: exported
   - $libs.store5
   - $libs.kermit
-  - $libs.androidx.datastore.core
-  - $libs.androidx.datastore.preference
 
 dependencies@android:
   - $libs.androidx.compose.activity: exported

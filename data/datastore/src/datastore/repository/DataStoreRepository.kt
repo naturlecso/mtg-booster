@@ -1,4 +1,4 @@
-package data.repository
+package datastore.repository
 
 import kotlinx.coroutines.flow.Flow
 
