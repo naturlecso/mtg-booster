@@ -4,6 +4,7 @@ dependencies:
   - ../core/base
   - ../data/database
   - ../data/datastore
+  - ../data/network
   - ../shared
 
 settings:

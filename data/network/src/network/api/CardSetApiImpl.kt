@@ -1,13 +1,13 @@
-package data.network.cardset
+package network.api
 
-import data.network.model.CardSetListNetworkModel
-import data.network.model.CardSetNetworkModel
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.request
 import io.ktor.http.HttpMethod
 import io.ktor.http.path
 import me.tatarka.inject.annotations.Inject
+import network.model.CardSetListNetworkModel
+import network.model.CardSetNetworkModel
 import software.amazon.lastmile.kotlin.inject.anvil.AppScope
 import software.amazon.lastmile.kotlin.inject.anvil.ContributesBinding
 import software.amazon.lastmile.kotlin.inject.anvil.SingleIn

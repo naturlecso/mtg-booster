@@ -6,6 +6,7 @@ dependencies:
   - ../core/base
   - ../data/database
   - ../data/datastore
+  - ../data/network
   - $compose.foundation: exported
   - $compose.material3: exported
   - $compose.components.resources: exported
@@ -15,10 +16,6 @@ dependencies:
   - $libs.decompose.decompose: exported
   - $libs.decompose.extensions.compose: exported
   - $libs.essenty.lifecycle: exported
-  - $libs.ktor.core
-  - $libs.ktor.content.negotiation
-  - $libs.ktor.serialization.json
-  - $libs.ktor.logging
   - $libs.compose.unstyled: exported
   - $libs.coil.compose: exported
   - $libs.coil.compose.ktor: exported
@@ -27,10 +24,6 @@ dependencies:
 
 dependencies@android:
   - $libs.androidx.compose.activity: exported
-  - $libs.ktor.okhttp
-
-dependencies@ios:
-  - $libs.ktor.darwin
 
 settings:
   ktor: enabled

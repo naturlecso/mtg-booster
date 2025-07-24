@@ -1,7 +1,7 @@
-package data.network.cardset
+package network.api
 
-import data.network.model.CardSetListNetworkModel
-import data.network.model.CardSetNetworkModel
+import network.model.CardSetListNetworkModel
+import network.model.CardSetNetworkModel
 
 interface CardSetApi {
     suspend fun fetchSingleCardSet(code: String): CardSetNetworkModel

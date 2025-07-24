@@ -1,0 +1,29 @@
+product:
+  type: lib
+  platforms: [android, iosArm64, iosSimulatorArm64, iosX64]
+
+dependencies:
+  - ../../core/base
+  - $libs.kotlinInject.runtime
+  - $libs.kotlinInject.anvil.runtime
+  - $libs.kotlinInject.anvil.runtime.optional
+  - $libs.ktor.core: exported
+  - $libs.ktor.content.negotiation
+  - $libs.ktor.serialization.json
+  - $libs.ktor.logging
+  - $libs.kermit
+
+dependencies@android:
+  - $libs.ktor.okhttp
+
+dependencies@ios:
+  - $libs.ktor.darwin
+
+settings:
+  ktor: enabled
+  kotlin:
+    serialization: json
+    ksp:
+      processors:
+        - $libs.kotlinInject.compiler
+        - $libs.kotlinInject.anvil.compiler

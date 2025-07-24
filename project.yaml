@@ -5,3 +5,4 @@ modules:
   - core/base
   - data/database
   - data/datastore
+  - data/network
