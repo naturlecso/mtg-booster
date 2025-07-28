@@ -1,7 +1,7 @@
-package data.repository
+package domain.repository
 
-import domain.CardSet
-import domain.SelectedCardSet
+import domain.model.CardSet
+import domain.model.SelectedCardSet
 import kotlinx.coroutines.flow.Flow
 
 interface CardSetRepository {

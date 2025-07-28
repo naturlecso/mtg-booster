@@ -3,6 +3,7 @@ product:
   platforms: [android, iosArm64, iosSimulatorArm64, iosX64]
 
 dependencies:
+  - ../domain
   - ../core/base
   - ../data/database
   - ../data/datastore

@@ -2,6 +2,7 @@ modules:
   - android-app
   - ios-app
   - shared
+  - domain
   - core/base
   - data/database
   - data/datastore

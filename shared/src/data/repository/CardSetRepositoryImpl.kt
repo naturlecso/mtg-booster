@@ -6,8 +6,9 @@ import database.dao.CardSetDisplayDao
 import database.model.CardSetDisplayEntity
 import database.model.CardSetEntity
 import datastore.repository.DataStoreRepository
-import domain.CardSet
-import domain.SelectedCardSet
+import domain.model.CardSet
+import domain.model.SelectedCardSet
+import domain.repository.CardSetRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine

@@ -1,4 +1,4 @@
-package domain
+package domain.model
 
 data class CardSet(
     val code: String,
