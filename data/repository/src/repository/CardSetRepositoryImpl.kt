@@ -1,6 +1,5 @@
-package data.repository
+package repository
 
-import data.store.CardSetStore
 import database.dao.CardSetDao
 import database.dao.CardSetDisplayDao
 import database.model.CardSetDisplayEntity
@@ -23,6 +22,7 @@ import org.mobilenativefoundation.store.store5.impl.extensions.fresh
 import software.amazon.lastmile.kotlin.inject.anvil.AppScope
 import software.amazon.lastmile.kotlin.inject.anvil.ContributesBinding
 import software.amazon.lastmile.kotlin.inject.anvil.SingleIn
+import store.CardSetStore
 
 @Inject
 @SingleIn(AppScope::class)

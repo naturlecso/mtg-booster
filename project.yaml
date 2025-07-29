@@ -7,3 +7,5 @@ modules:
   - data/database
   - data/datastore
   - data/network
+  - data/repository
+  - data/store

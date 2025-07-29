@@ -5,6 +5,8 @@ dependencies:
   - ../data/database
   - ../data/datastore
   - ../data/network
+  - ../data/repository
+  - ../data/store
   - ../shared
 
 settings:

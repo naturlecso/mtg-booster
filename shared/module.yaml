@@ -8,6 +8,8 @@ dependencies:
   - ../data/database
   - ../data/datastore
   - ../data/network
+  - ../data/repository
+  - ../data/store
   - $compose.foundation: exported
   - $compose.material3: exported
   - $compose.components.resources: exported

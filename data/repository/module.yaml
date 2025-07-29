@@ -1,0 +1,20 @@
+product:
+  type: lib
+  platforms: [android, iosArm64, iosSimulatorArm64, iosX64]
+
+dependencies:
+  - ../../domain
+  - ../../data/database
+  - ../../data/datastore
+  - ../../data/store
+  - $libs.kotlinInject.runtime: exported
+  - $libs.kotlinInject.anvil.runtime: exported
+  - $libs.kotlinInject.anvil.runtime.optional: exported
+  - $libs.store5
+
+settings:
+  kotlin:
+    ksp:
+      processors:
+        - $libs.kotlinInject.compiler
+        - $libs.kotlinInject.anvil.compiler

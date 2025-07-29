@@ -1,6 +1,5 @@
-package data.store
+package store
 
-import data.util.storeBuilder
 import database.dao.CardSetDao
 import database.model.CardSetEntity
 import me.tatarka.inject.annotations.Inject
@@ -9,6 +8,7 @@ import network.model.CardSetNetworkModel
 import org.mobilenativefoundation.store.store5.Fetcher
 import org.mobilenativefoundation.store.store5.SourceOfTruth
 import org.mobilenativefoundation.store.store5.Store
+import store.extensions.storeBuilder
 
 @Inject
 class CardSetStore(

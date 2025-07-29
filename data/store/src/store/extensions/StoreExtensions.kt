@@ -1,4 +1,4 @@
-package data.util
+package store.extensions
 
 import org.mobilenativefoundation.store.store5.Fetcher
 import org.mobilenativefoundation.store.store5.SourceOfTruth
