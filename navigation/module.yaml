@@ -3,17 +3,17 @@ product:
   platforms: [android, iosArm64, iosSimulatorArm64, iosX64]
 
 dependencies:
-  - ../../domain
-  - ../../data/database: exported
-  - ../../data/datastore: exported
-  - ../../data/network: exported
+  - ../presenter/home: exported
   - $libs.kotlinInject.runtime
   - $libs.kotlinInject.anvil.runtime
   - $libs.kotlinInject.anvil.runtime.optional
-  - $libs.store5: exported
+  - $libs.decompose.decompose
+  - $libs.decompose.extensions.compose
+  - $libs.essenty.lifecycle
 
 settings:
   kotlin:
+    serialization: json
     ksp:
       processors:
         - $libs.kotlinInject.compiler

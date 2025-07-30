@@ -1,4 +1,4 @@
-package feature.home
+package presenter.home
 
 import com.arkivanov.decompose.value.Value
 

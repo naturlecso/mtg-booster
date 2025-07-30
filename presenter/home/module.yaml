@@ -3,27 +3,28 @@ product:
   platforms: [android, iosArm64, iosSimulatorArm64, iosX64]
 
 dependencies:
-  - ../domain
-  - ../theme
-  - ../navigation
-  - ../core/base
-  - $compose.foundation
-  - $compose.material3
-  - $libs.compose.unstyled
-  - $libs.decompose.decompose
-  - $libs.decompose.extensions.compose
-  - $libs.essenty.lifecycle
+  - ../../domain
+  - ../../theme
+  - ../../core/base
+  - ../../data/repository: exported
   - $libs.kotlinInject.runtime
   - $libs.kotlinInject.anvil.runtime
   - $libs.kotlinInject.anvil.runtime.optional
-
-dependencies@android:
-  - $libs.androidx.compose.activity: exported
+  - $libs.decompose.decompose
+  - $libs.decompose.extensions.compose
+  - $libs.essenty.lifecycle
+  - $compose.foundation
+  - $compose.material3
+  - $compose.components.resources
+  - $libs.compose.unstyled
+  - $libs.coil.compose
+  - $libs.coil.compose.ktor
 
 settings:
   compose:
     enabled: true
   kotlin:
+    serialization: json
     ksp:
       processors:
         - $libs.kotlinInject.compiler

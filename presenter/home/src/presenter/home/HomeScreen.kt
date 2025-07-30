@@ -1,4 +1,4 @@
-package feature.home
+package presenter.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -35,12 +35,12 @@ import coil3.compose.AsyncImage
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
 import com.composables.core.Icon
 import com.composeunstyled.Text
-import com.naturlecso.mtgbooster.shared.Res
-import com.naturlecso.mtgbooster.shared.home_edit_description
-import com.naturlecso.mtgbooster.shared.home_generate_button
-import com.naturlecso.mtgbooster.shared.home_refresh_description
+import com.naturlecso.mtgbooster.theme.Res
+import com.naturlecso.mtgbooster.theme.home_edit_description
+import com.naturlecso.mtgbooster.theme.home_generate_button
+import com.naturlecso.mtgbooster.theme.home_refresh_description
 import org.jetbrains.compose.resources.stringResource
-import ui.HomeTopShape
+import theme.shapes.HomeTopShape
 import kotlin.math.PI
 import kotlin.math.atan2
 

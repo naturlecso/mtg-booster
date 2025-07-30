@@ -1,12 +1,12 @@
-package ui
+package theme.typography
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.naturlecso.mtgbooster.shared.Beleren_Bold
-import com.naturlecso.mtgbooster.shared.Res
+import com.naturlecso.mtgbooster.theme.Beleren_Bold
+import com.naturlecso.mtgbooster.theme.Res
 import org.jetbrains.compose.resources.Font
 import androidx.compose.material3.Typography
 

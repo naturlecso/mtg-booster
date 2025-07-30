@@ -1,4 +1,4 @@
-package ui
+package theme.shapes
 
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Outline

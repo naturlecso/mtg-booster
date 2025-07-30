@@ -3,9 +3,12 @@ modules:
   - ios-app
   - shared
   - domain
+  - navigation
   - core/base
   - data/database
   - data/datastore
   - data/network
   - data/repository
   - data/store
+  - presenter/home
+  - theme

@@ -2,12 +2,11 @@ product: android/app
 
 dependencies:
   - ../core/base
-  - ../data/database
-  - ../data/datastore
-  - ../data/network
-  - ../data/repository
-  - ../data/store
   - ../shared
+  - ../navigation
+  - $libs.decompose.decompose
+  - $libs.decompose.extensions.compose
+  - $libs.essenty.lifecycle
 
 settings:
   compose: enabled

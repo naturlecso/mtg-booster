@@ -4,12 +4,12 @@ product:
 
 dependencies:
   - ../../domain
-  - ../../data/database
-  - ../../data/datastore
-  - ../../data/store
-  - $libs.kotlinInject.runtime: exported
-  - $libs.kotlinInject.anvil.runtime: exported
-  - $libs.kotlinInject.anvil.runtime.optional: exported
+  - ../../data/database: exported
+  - ../../data/datastore: exported
+  - ../../data/store: exported
+  - $libs.kotlinInject.runtime
+  - $libs.kotlinInject.anvil.runtime
+  - $libs.kotlinInject.anvil.runtime.optional
   - $libs.store5
 
 settings:

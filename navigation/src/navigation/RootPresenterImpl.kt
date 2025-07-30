@@ -1,17 +1,15 @@
-package root
+package navigation
 
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.decompose.router.stack.StackNavigation
 import com.arkivanov.decompose.router.stack.childStack
 import com.arkivanov.decompose.value.Value
-import feature.home.HomePresenter
-import feature.home.HomePresenterFactory
+import presenter.home.HomePresenter
+import presenter.home.HomePresenterFactory
 import me.tatarka.inject.annotations.Assisted
 import me.tatarka.inject.annotations.Inject
-import root.RootDestinationConfig.Home
-import root.RootPresenter.Child
-import root.RootPresenter.Child.HomeChild
+import navigation.RootDestinationConfig.Home
 
 @Inject
 class RootPresenterFactory(
@@ -27,7 +25,7 @@ class RootPresenterImpl(
 ) : RootPresenter, ComponentContext by componentContext {
     private val nav = StackNavigation<RootDestinationConfig>()
 
-    override val childStack: Value<ChildStack<*, Child>> =
+    override val childStack: Value<ChildStack<*, RootPresenter.Child>> =
         childStack(
             source = nav,
             initialConfiguration = Home,
@@ -39,9 +37,9 @@ class RootPresenterImpl(
     private fun createScreen(
         config: RootDestinationConfig,
         context: ComponentContext
-    ): Child =
+    ): RootPresenter.Child =
         when (config) {
-            is Home -> HomeChild(homePresenter(context))
+            is Home -> RootPresenter.Child.HomeChild(homePresenter(context))
         }
 
     private fun homePresenter(

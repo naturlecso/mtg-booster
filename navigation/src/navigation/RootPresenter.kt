@@ -1,8 +1,8 @@
-package root
+package navigation
 
 import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.decompose.value.Value
-import feature.home.HomePresenter
+import presenter.home.HomePresenter
 
 interface RootPresenter {
     val childStack: Value<ChildStack<*, Child>>

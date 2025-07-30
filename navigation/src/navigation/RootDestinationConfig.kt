@@ -1,4 +1,4 @@
-package root
+package navigation
 
 import kotlinx.serialization.Serializable
 

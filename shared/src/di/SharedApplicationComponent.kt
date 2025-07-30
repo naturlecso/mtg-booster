@@ -1,6 +1,6 @@
 package di
 
-import root.RootPresenterFactory
+import navigation.RootPresenterFactory
 import software.amazon.lastmile.kotlin.inject.anvil.AppScope
 import software.amazon.lastmile.kotlin.inject.anvil.ContributesTo
 import software.amazon.lastmile.kotlin.inject.anvil.SingleIn

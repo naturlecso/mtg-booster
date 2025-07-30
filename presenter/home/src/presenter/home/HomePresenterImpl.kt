@@ -1,4 +1,4 @@
-package feature.home
+package presenter.home
 
 import base.extensions.coroutineScope
 import com.arkivanov.decompose.ComponentContext
