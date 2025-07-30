@@ -3,10 +3,10 @@ product:
   platforms: [android, iosArm64, iosSimulatorArm64, iosX64]
 
 dependencies:
-  - ../domain
-  - ../theme
-  - ../navigation
-  - ../core/base
+  - ../../domain
+  - ../../theme
+  - ../../navigation
+  - ../../core/base
   - $compose.foundation
   - $compose.material3
   - $libs.compose.unstyled

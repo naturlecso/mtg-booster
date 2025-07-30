@@ -1,0 +1,12 @@
+product:
+  type: ios/app
+
+dependencies:
+  - ../../core/base
+  - ../../data/database
+  - ../../data/datastore
+  - ../../data/network
+  - ../shared
+
+settings:
+  compose: enabled

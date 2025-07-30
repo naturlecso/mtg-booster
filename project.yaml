@@ -1,7 +1,7 @@
 modules:
-  - android-app
-  - ios-app
-  - shared
+  - apps/android-app
+  - apps/ios-app
+  - apps/shared
   - domain
   - navigation
   - core/base
