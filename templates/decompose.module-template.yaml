@@ -1,0 +1,4 @@
+dependencies:
+  - $libs.decompose.decompose
+  - $libs.decompose.extensions.compose
+  - $libs.essenty.lifecycle

@@ -2,18 +2,14 @@ product:
   type: lib
   platforms: [android, iosArm64, iosSimulatorArm64, iosX64]
 
+apply:
+  - ../../templates/di.module-template.yaml
+
 dependencies:
   - $compose.foundation
-  - $libs.kotlinInject.runtime
-  - $libs.kotlinInject.anvil.runtime
-  - $libs.kotlinInject.anvil.runtime.optional
   - $libs.essenty.lifecycle
 
 settings:
   compose: enabled
   kotlin:
     serialization: json
-    ksp:
-      processors:
-        - $libs.kotlinInject.compiler
-        - $libs.kotlinInject.anvil.compiler

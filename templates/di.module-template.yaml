@@ -1,0 +1,11 @@
+dependencies:
+  - $libs.kotlinInject.runtime
+  - $libs.kotlinInject.anvil.runtime
+  - $libs.kotlinInject.anvil.runtime.optional
+
+settings:
+  kotlin:
+    ksp:
+      processors:
+        - $libs.kotlinInject.compiler
+        - $libs.kotlinInject.anvil.compiler

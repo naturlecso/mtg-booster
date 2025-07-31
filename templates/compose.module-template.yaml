@@ -1,0 +1,11 @@
+dependencies:
+  - $compose.foundation
+  - $compose.material3
+  - $compose.components.resources
+  - $libs.compose.unstyled
+  - $libs.coil.compose
+  - $libs.coil.compose.ktor
+
+settings:
+  compose:
+    enabled: true

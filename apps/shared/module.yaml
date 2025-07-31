@@ -2,29 +2,16 @@ product:
   type: lib
   platforms: [android, iosArm64, iosSimulatorArm64, iosX64]
 
+apply:
+  - ../../templates/di.module-template.yaml
+  - ../../templates/compose.module-template.yaml
+  - ../../templates/decompose.module-template.yaml
+
 dependencies:
   - ../../domain
-  - ../../theme
   - ../../navigation
+  - ../../theme
   - ../../core/base
-  - $compose.foundation
-  - $compose.material3
-  - $libs.compose.unstyled
-  - $libs.decompose.decompose
-  - $libs.decompose.extensions.compose
-  - $libs.essenty.lifecycle
-  - $libs.kotlinInject.runtime
-  - $libs.kotlinInject.anvil.runtime
-  - $libs.kotlinInject.anvil.runtime.optional
 
 dependencies@android:
   - $libs.androidx.compose.activity: exported
-
-settings:
-  compose:
-    enabled: true
-  kotlin:
-    ksp:
-      processors:
-        - $libs.kotlinInject.compiler
-        - $libs.kotlinInject.anvil.compiler

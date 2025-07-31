@@ -1,12 +1,12 @@
 product: android/app
 
+apply:
+  - ../../templates/decompose.module-template.yaml
+
 dependencies:
-  - ../../core/base
   - ../shared
+  - ../../core/base
   - ../../navigation
-  - $libs.decompose.decompose
-  - $libs.decompose.extensions.compose
-  - $libs.essenty.lifecycle
 
 settings:
   compose: enabled

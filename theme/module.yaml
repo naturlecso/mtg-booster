@@ -2,17 +2,11 @@ product:
   type: lib
   platforms: [android, iosArm64, iosSimulatorArm64, iosX64]
 
-dependencies:
-  - $compose.foundation
-  - $compose.material3
-  - $compose.components.resources
-  - $libs.compose.unstyled
-  - $libs.coil.compose
-  - $libs.coil.compose.ktor
+apply:
+  - ../templates/compose.module-template.yaml
 
 settings:
   compose:
-    enabled: true
     resources:
       exposedAccessors: true
       packageName: com.naturlecso.mtgbooster.theme

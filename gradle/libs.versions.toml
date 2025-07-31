@@ -1,4 +1,5 @@
 [versions]
+kotlinx-coroutines = "1.10.2"
 kotlin-inject = "0.8.0"
 kotlin-inject-anvil = "0.1.5"
 decompose = "3.3.0"
@@ -14,6 +15,7 @@ androidx-datastore = "1.1.7"
 kermit = "2.0.6"
 
 [libraries]
+kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
 kotlinInject-compiler = { module = "me.tatarka.inject:kotlin-inject-compiler-ksp", version.ref = "kotlin-inject" }
 kotlinInject-runtime = { module = "me.tatarka.inject:kotlin-inject-runtime-kmp", version.ref = "kotlin-inject" }
 kotlinInject-anvil-compiler = { group = "software.amazon.lastmile.kotlin.inject.anvil", name = "compiler", version.ref = "kotlin-inject-anvil" }

@@ -2,11 +2,11 @@ product:
   type: lib
   platforms: [android, iosArm64, iosSimulatorArm64, iosX64]
 
+apply:
+  - ../../templates/di.module-template.yaml
+
 dependencies:
   - ../../core/base
-  - $libs.kotlinInject.runtime
-  - $libs.kotlinInject.anvil.runtime
-  - $libs.kotlinInject.anvil.runtime.optional
   - $libs.ktor.core: exported
   - $libs.ktor.content.negotiation
   - $libs.ktor.serialization.json
@@ -23,7 +23,3 @@ settings:
   ktor: enabled
   kotlin:
     serialization: json
-    ksp:
-      processors:
-        - $libs.kotlinInject.compiler
-        - $libs.kotlinInject.anvil.compiler
