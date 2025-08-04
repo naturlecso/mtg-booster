@@ -9,6 +9,7 @@ import com.arkivanov.decompose.extensions.compose.stack.animation.plus
 import com.arkivanov.decompose.extensions.compose.stack.animation.scale
 import com.arkivanov.decompose.extensions.compose.stack.animation.stackAnimation
 import navigation.RootPresenter
+import presenter.cardsetchooser.CardSetChooserScreen
 import presenter.home.HomeScreen
 import theme.typography.MtgTypography
 
@@ -30,7 +31,10 @@ fun Screen(
                 animation = stackAnimation(animator = fade() + scale())
             ) {
                 when (val child = it.instance) {
-                    is RootPresenter.Child.HomeChild -> HomeScreen(
+                    is RootPresenter.Child.Home -> HomeScreen(
+                        presenter = child.presenter
+                    )
+                    is RootPresenter.Child.CardSetChooser -> CardSetChooserScreen(
                         presenter = child.presenter
                     )
                 }

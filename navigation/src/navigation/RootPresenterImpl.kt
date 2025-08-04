@@ -4,12 +4,15 @@ import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.decompose.router.stack.StackNavigation
 import com.arkivanov.decompose.router.stack.childStack
+import com.arkivanov.decompose.router.stack.pop
+import com.arkivanov.decompose.router.stack.pushNew
 import com.arkivanov.decompose.value.Value
 import presenter.home.HomePresenter
-import presenter.home.HomePresenterFactory
 import me.tatarka.inject.annotations.Assisted
 import me.tatarka.inject.annotations.Inject
 import navigation.RootDestinationConfig.Home
+import navigation.RootDestinationConfig.CardSetChooser
+import presenter.cardsetchooser.CardSetChooserPresenter
 
 @Inject
 class RootPresenterFactory(
@@ -20,8 +23,9 @@ class RootPresenterFactory(
 
 @Inject
 class RootPresenterImpl(
-    private val homePresenterFactory: HomePresenterFactory,
-    @Assisted componentContext: ComponentContext
+    @Assisted componentContext: ComponentContext,
+    private val homePresenterFactory: HomePresenter.Factory,
+    private val cardSetChooserPresenterFactory: CardSetChooserPresenter.Factory,
 ) : RootPresenter, ComponentContext by componentContext {
     private val nav = StackNavigation<RootDestinationConfig>()
 
@@ -36,14 +40,19 @@ class RootPresenterImpl(
 
     private fun createScreen(
         config: RootDestinationConfig,
-        context: ComponentContext
+        componentContext: ComponentContext
     ): RootPresenter.Child =
         when (config) {
-            is Home -> RootPresenter.Child.HomeChild(homePresenter(context))
+            is Home -> RootPresenter.Child.Home(
+                homePresenterFactory(
+                    componentContext = componentContext,
+                    onNavigateToChooseSet = { nav.pushNew(CardSetChooser) }
+                ))
+            is CardSetChooser -> RootPresenter.Child.CardSetChooser(
+                cardSetChooserPresenterFactory(
+                    componentContext = componentContext,
+                    onSetSelectionCompleted = { nav.pop() }
+                )
+            )
         }
-
-    private fun homePresenter(
-        context: ComponentContext
-    ): HomePresenter = homePresenterFactory
-        .create(context)
 }

@@ -11,4 +11,5 @@ modules:
   - data/repository
   - data/store
   - presenter/home
+  - presenter/cardsetchooser
   - theme

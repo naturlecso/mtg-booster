@@ -7,18 +7,14 @@ import domain.repository.CardSetRepository
 import kotlinx.coroutines.launch
 import me.tatarka.inject.annotations.Assisted
 import me.tatarka.inject.annotations.Inject
-
-@Inject
-class HomePresenterFactory(
-    val create: (
-        componentContext: ComponentContext
-    ) -> HomePresenterImpl
-)
+import software.amazon.lastmile.kotlin.inject.anvil.AppScope
+import software.amazon.lastmile.kotlin.inject.anvil.ContributesBinding
 
 @Inject
 class HomePresenterImpl(
     @Assisted componentContext: ComponentContext,
-    private val cardSetRepository: CardSetRepository
+    @Assisted private val onNavigateToSetChoose: () -> Unit,
+    private val cardSetRepository: CardSetRepository,
 ): HomePresenter, ComponentContext by componentContext {
     private val coroutineScope = coroutineScope()
     override val viewState = MutableValue(HomeViewState())
@@ -31,9 +27,7 @@ class HomePresenterImpl(
         }
     }
 
-    override fun onChooseSet() {
-        // navigate to set selection screen
-    }
+    override fun onChooseSet() = onNavigateToSetChoose()
 
     override fun onChangeSetImage() {
         coroutineScope.launch {
@@ -44,4 +38,18 @@ class HomePresenterImpl(
     override fun onGenerateBooster() {
         // navigate to booster generator
     }
+}
+
+@Inject
+@ContributesBinding(AppScope::class, HomePresenter.Factory::class)
+class HomePresenterFactoryImpl(
+    val create: (
+        componentContext: ComponentContext,
+        onNavigateToChooseSet: () -> Unit
+    ) -> HomePresenterImpl
+) : HomePresenter.Factory {
+    override fun invoke(
+        componentContext: ComponentContext,
+        onNavigateToChooseSet: () -> Unit
+    ): HomePresenter = create(componentContext, onNavigateToChooseSet)
 }

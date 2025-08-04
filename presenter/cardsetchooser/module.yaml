@@ -1,0 +1,14 @@
+product:
+  type: lib
+  platforms: [android, iosArm64, iosSimulatorArm64, iosX64]
+
+apply:
+  - ../../templates/di.module-template.yaml
+  - ../../templates/compose.module-template.yaml
+  - ../../templates/decompose.module-template.yaml
+
+dependencies:
+  - ../../domain
+  - ../../theme
+  - ../../core/base
+  - ../../data/repository: exported

@@ -6,4 +6,7 @@ import kotlinx.serialization.Serializable
 sealed interface RootDestinationConfig {
     @Serializable
     data object Home : RootDestinationConfig
+
+    @Serializable
+    data object CardSetChooser : RootDestinationConfig
 }
