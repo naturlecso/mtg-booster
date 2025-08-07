@@ -21,7 +21,6 @@ class HomePresenterImpl(
 
     init {
         coroutineScope.launch {
-            cardSetRepository.fetch() // TODO relocate to app init
             cardSetRepository.observeSelectedCardSet()
                 .collect { viewState.value = viewState.value.copy(selectedCardSet = it) }
         }

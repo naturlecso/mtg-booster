@@ -21,11 +21,10 @@ class DataStoreRepositoryImpl(
         dataStore.edit { preferences -> preferences[KEY_SELECTED_CARD_SET] = code }
     }
 
-    override fun observeSelectedCardSet(): Flow<String> = dataStore
-        .data.map { preferences -> preferences[KEY_SELECTED_CARD_SET] ?: DEFAULT_SELECTED_CARD_SET }
+    override fun observeSelectedCardSet(): Flow<String?> = dataStore
+        .data.map { preferences -> preferences[KEY_SELECTED_CARD_SET] }
 
     companion object {
         val KEY_SELECTED_CARD_SET = stringPreferencesKey("selected_card_set")
-        const val DEFAULT_SELECTED_CARD_SET = "fin"
     }
 }
