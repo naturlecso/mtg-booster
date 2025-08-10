@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class CardSetDisplayEntity(
     @PrimaryKey val code: String,
     val name: String,
-    val cardNumber: Int
+    val imageUrl: String
 ) {
     companion object {
         const val TABLE_NAME = "card_set_display"

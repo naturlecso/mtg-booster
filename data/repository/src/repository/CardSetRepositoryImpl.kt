@@ -8,6 +8,9 @@ import datastore.repository.DataStoreRepository
 import domain.model.CardSet
 import domain.model.SelectedCardSet
 import domain.repository.CardSetRepository
+import io.ktor.client.HttpClient
+import io.ktor.client.request.head
+import io.ktor.http.HttpStatusCode
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
@@ -31,6 +34,7 @@ import store.CardSetStore
 @SingleIn(AppScope::class)
 @ContributesBinding(AppScope::class)
 class CardSetRepositoryImpl(
+    private val httpClient: HttpClient,
     private val cardSetStore: CardSetStore,
     private val cardSetDao: CardSetDao,
     private val cardSetDisplayDao: CardSetDisplayDao,
@@ -44,7 +48,7 @@ class CardSetRepositoryImpl(
             cardSetDao
                 .get(code)
                 .first()
-                .let { cardSetDisplayDao.insert(it.asCardSetDisplay()) }
+                .let { cardSetDisplayDao.insert(it.asCardSetDisplayEntity()) }
         }
 
         dataStoreRepository.saveSelectedCardSet(code)
@@ -60,11 +64,17 @@ class CardSetRepositoryImpl(
                 cardSetDisplayDao.get(code)
                     .filterNotNull()
             ) { cardCountInSet, cardSetDisplay ->
-                cardSetDisplay.copy(cardNumber = cardCountInSet.randomUpToMyself())
+                val imageUrl = checkImageUrl(
+                    cardSetDisplay.code,
+                    cardCountInSet
+                )
+                cardSetDisplay.copy(imageUrl = imageUrl)
             }
         }
         .first()
-        .let { cardSetDisplayDao.update(it) }
+        .let {
+            cardSetDisplayDao.update(it)
+        }
 
     override fun observeCardSets(): Flow<List<CardSet>> = cardSetStore
         .stream(StoreReadRequest.cached(key = Unit, refresh = false))
@@ -89,7 +99,7 @@ class CardSetRepositoryImpl(
                     .filter { it.isNotEmpty() }
                     .map { cardSetList -> cardSetList
                         .random()
-                        .asCardSetDisplay()
+                        .asCardSetDisplayEntity()
                     }
                     .onEach {
                         cardSetDisplayDao.insert(it)
@@ -98,6 +108,44 @@ class CardSetRepositoryImpl(
             }
         }
         .map { it.asSelectedCardSet() }
+
+    private suspend fun isImageAvailable(url: String) = try {
+        with(httpClient.head(url)) {
+            status == HttpStatusCode.OK
+        }
+    } catch (_: Throwable) {
+        false
+    }
+
+    suspend fun checkImageUrl(
+        code: String,
+        cardCountInSet: Int,
+        tries: Int = 0
+    ): String {
+        if (tries > cardCountInSet) {
+            return "https://static.wikia.nocookie.net/mtgsalvation_gamepedia/images/f/f8/Magic_card_back.jpg"
+        }
+
+        val cardNumber = cardCountInSet.randomUpToMyself()
+        val imageUrl = "https://www.mtgpics.com/pics/art/$code/$cardNumber.jpg"
+        if (isImageAvailable(imageUrl)) {
+            return imageUrl
+        }
+
+        return checkImageUrl(code, cardCountInSet, tries + 1)
+    }
+
+    private suspend fun CardSetEntity.asCardSetDisplayEntity(): CardSetDisplayEntity {
+        val imageUrl = checkImageUrl(
+            code = code,
+            cardCountInSet = cardCount
+        )
+        return CardSetDisplayEntity(
+            code = code,
+            name = name,
+            imageUrl = imageUrl
+        )
+    }
 }
 
 private fun Int.randomUpToMyself() = (1..this).random()
@@ -112,11 +160,5 @@ private fun CardSetEntity.asCardSet() = CardSet(
 private fun CardSetDisplayEntity.asSelectedCardSet() = SelectedCardSet(
     code = code,
     name = name,
-    cardNumber = cardNumber
-)
-
-private fun CardSetEntity.asCardSetDisplay() = CardSetDisplayEntity(
-    code = code,
-    name = name,
-    cardNumber = cardCount.randomUpToMyself()
+    imageUrl = imageUrl
 )
