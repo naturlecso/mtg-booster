@@ -6,6 +6,7 @@ apply:
   - ../../templates/di.module-template.yaml
 
 dependencies:
+  - $libs.kotlin.coroutines.core
   - $compose.foundation
   - $libs.essenty.lifecycle
 

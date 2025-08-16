@@ -3,6 +3,7 @@ dependencies:
   - $compose.material3
   - $compose.components.resources
   - $libs.compose.unstyled
+  - $libs.compose.shimmer
   - $libs.coil.compose
   - $libs.coil.compose.ktor
 
