@@ -5,6 +5,7 @@ dependencies:
   - $libs.compose.unstyled
   - $libs.compose.shimmer
   - $libs.coil.compose
+  - $libs.coil.svg
   - $libs.coil.compose.ktor
 
 settings:
